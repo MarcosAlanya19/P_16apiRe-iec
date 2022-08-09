@@ -1,5 +1,8 @@
 import javax.swing.*;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Scanner;
+
 
 public class fruits {
     public static void main(String[] args) {
@@ -8,31 +11,33 @@ public class fruits {
             fruits.userFruit();
             retry = aFunction.toTryAgain();
         } while (retry);
-        System.out.println("FIN DEL PROGRAMA");
-//        System.out.println("\nCompraste "+kilo+" kl de "+listFruits[compra].fruta+" "+
-//                "con un costo total de " + compras);
+        System.out.println("GRACIAS POR SU COMPRA, VUELVA PRONTO");
     }
     public static void userFruit() {
-
         Scanner store = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        // Frutas en stock
+        objectFruits[] listFruits = new objectFruits[3];
+        listFruits[0]=new objectFruits(1,"Manzana",3.00);
+        listFruits[1]=new objectFruits(2,"Mandarina",2.00);
+        listFruits[2]=new objectFruits(3,"Uva", 4.00);
 
         // Solicitud de nombre para el cliente
         String nombre = JOptionPane.showInputDialog("Buen dia, ¿Cual es su nombre?");
         System.out.println("Que gusta comprar hoy? "+nombre );
         System.out.println("Por hoy solo tenemos estas frutas:");
 
-        // Frutas en stock
-        objectFruits listFruits[] = new objectFruits[3];
-        listFruits[0]=new objectFruits(1,"Manzana",3.00);
-        listFruits[1]=new objectFruits(2,"Mandarina",2.00);
-        listFruits[2]=new objectFruits(3,"Uva", 4.00);
-
         // Recorrido de todas las frutas existentes
         for (int i = 0; i < listFruits.length; i++) {
-            System.out.println(listFruits[i].id+".- "+listFruits[i].fruta +" a un costo de "+ listFruits[i].costo +" el kilo");
+            System.out.println(listFruits[i].id+".- "+listFruits[i].fruta +" a un " +
+                    "costo de "+ listFruits[i].costo +" el kilo");
         }
+
         // Se menciona sobre los descuentos habientes
-        System.out.println("Recuerda que hay un descuento de 20% por una compra mayor de 50 soles");
+        System.out.println("Descuento 20% por compras mayores a S/ 50.00");
+        System.out.println("Descuento 40% por compras mayores a S/100.00");
+        System.out.println("Descuento 50% por compras mayores a S/150.00");
 
         // Opciones de compra
         int compra = JOptionPane.showOptionDialog(null,
@@ -44,18 +49,50 @@ public class fruits {
                 new String[]{listFruits[0].fruta,listFruits[1].fruta,listFruits[2].fruta}," ");
 
         // Consulta de kilos a llevar
-        int kilo = Integer.parseInt(JOptionPane.showInputDialog("Cuantos kilos va a comprar"));
+        double kilo = Double.parseDouble(JOptionPane.showInputDialog("¿Cuantos kilos va a comprar?"));
 
-        // Algoritmo para calculo de compra
+        // Algoritmos
         double compras = listFruits[compra].costo * kilo;
+        double baseI = compras/1.18;
+        double IGV = (compras/1.18)*0.18;
 
+        LocalDate todaysDate = LocalDate.now();
+            //Descuentos
+            double descuento = 0;
+            df.format(descuento);
 
+        if (compras>50){
+                descuento = compras*0.20;
+            } else if (compras>100) {
+                descuento = compras*0.40;
+            } else if (compras>150) {
+                descuento = compras*0.50;
+            } else {
+                System.out.println("Descuento no valido");
+            }
 
-
-        // Repetidor
+        // Array
+//        Stack<String> stack = new Stack<String>();
+//        String array = stack.push(Arrays.toString(new String[]{listFruits[compra].fruta,
+//                String.valueOf(listFruits[compra].costo)}));
 
         // Informacion de comprobante
+        System.out.println(ANSI_YELLOW+"\nEl cliente: "+nombre+ "\nEl dia: "+todaysDate+"\nCompro" +
+                ":" +
+                " "+df.format(kilo)+
+                " kl de "+listFruits[compra].fruta+"\nPrecio por kilo: S/."+df.format(listFruits[compra].costo)+ANSI_YELLOW);
+        System.out.println(ANSI_YELLOW+"\nBase imponible: S/."+df.format(baseI)+"\nIGV: S/."+df.format(IGV)+
+                "\nPrecio neto: S/."+df.format(compras)+ANSI_YELLOW);
 
+        if(descuento>50){
+            System.out.println(ANSI_CYAN+"\nCon un descuento de S/."+df.format(descuento)+
+                    "\nTeniendo que " +
+                    "pagar un " +
+                    "total de: S/."+(compras-descuento)+ANSI_CYAN);
+        }
     }
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+
 }
 

@@ -22,5 +22,4 @@ public class ResponseApi {
     public String apellidoPaterno;
     public String apellidoMaterno;
     public String nombres;
-
 }

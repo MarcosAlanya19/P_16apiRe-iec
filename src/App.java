@@ -7,16 +7,17 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        System.out.println(Utils.findDni("74845954"));
-       /* boolean retry;
+       boolean retry;
         do {
             App.userFruit();
             retry = Utils.toTryAgain();
         } while (retry);
-        System.out.println("GRACIAS POR SU COMPRA, VUELVA PRONTO");*/
+        System.out.println("GRACIAS POR SU COMPRA, VUELVA PRONTO");
     }
 
-    public static void userFruit() {
+    public static void userFruit() throws IOException {
+        String ANSI_YELLOW = "\u001B[33m";
+        String ANSI_CYAN = "\u001B[36m";
         Scanner store = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("#.##");
 
@@ -27,8 +28,19 @@ public class App {
         listFruits[2] = new Fruit(3, "Uva", 4.00);
 
         // Solicitud de nombre para el cliente
-        String nombre = JOptionPane.showInputDialog("Buen dia, ¿Cual es su nombre?");
-        System.out.println("Que gusta comprar hoy? " + nombre);
+        String documento = JOptionPane.showInputDialog("Buen dia, ¿Cual es su DNI o RUC?");
+
+        String razonSocial = "";
+        String dirEmpresa = Utils.findRucDir(documento);
+
+        if (documento.length()>8){
+            razonSocial = Utils.findRuc(documento);
+            dirEmpresa = Utils.findRucDir(documento);
+        }else{
+            razonSocial = Utils.findDni(documento);
+        }
+
+        System.out.println("Que gusta comprar hoy? ");
         System.out.println("Por hoy solo tenemos estas frutas:");
 
         // Recorrido de todas las frutas existentes
@@ -74,19 +86,18 @@ public class App {
             System.out.println("Descuento no valido");
         }
 
-        // Array
-//        Stack<String> stack = new Stack<String>();
-//        String array = stack.push(Arrays.toString(new String[]{listFruits[compra].fruta,
-//                String.valueOf(listFruits[compra].costo)}));
-
         // Informacion de comprobante
-        System.out.println(ANSI_YELLOW + "\nEl cliente: " + nombre + "\nEl dia: " + todaysDate + "\nCompro" +
-                ":" +
-                " " + df.format(kilo) +
-                " kl de " + listFruits[compra].fruta + "\nPrecio por kilo: S/." + df.format(listFruits[compra].costo) + ANSI_YELLOW);
-        System.out.println(ANSI_YELLOW + "\nBase imponible: S/." + df.format(baseI) + "\nIGV: S/." + df.format(IGV) +
-                "\nPrecio neto: S/." + df.format(compras) + ANSI_YELLOW);
+        System.out.println(ANSI_YELLOW + "\nEl cliente: " + razonSocial+ANSI_YELLOW);
 
+        if (dirEmpresa.length()==25){
+            System.out.println(" ");
+        }else{
+            System.out.println("Su direccion es: "+dirEmpresa);
+        }
+
+        System.out.println(ANSI_YELLOW+"El dia: " + todaysDate +
+                "\nCompro: "+df.format(kilo)+" kl de "+listFruits[compra].fruta+"\nPrecio por kilo: S/."+df.format(listFruits[compra].costo)+ANSI_YELLOW);
+        System.out.println(ANSI_YELLOW+"\nBase imponible: S/."+df.format(baseI)+"\nIGV: S/."+df.format(IGV)+"\nPrecio neto: S/."+df.format(compras)+ANSI_YELLOW);
         if (descuento > 50) {
             System.out.println(ANSI_CYAN + "\nCon un descuento de S/." + df.format(descuento) +
                     "\nTeniendo que " +
@@ -94,10 +105,5 @@ public class App {
                     "total de: S/." + (compras - descuento) + ANSI_CYAN);
         }
     }
-
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-
-
 }
 

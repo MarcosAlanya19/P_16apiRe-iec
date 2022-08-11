@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f10ca2-9376-4013-8bb4-dd8ba9fbc32e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/eclipsesource_jaxrs_provider_gson.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/eed3si9n_gigahorse_okhttp_2_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ResponseApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/act.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fruits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fruits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExmFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ExmFinal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fruits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objectFruits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fruit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,16 +36,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/peru/Google Drive/Programacion/E_0Java/ExmFinal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/maximoprog/personal-proyects/proyects-marcos/ExmFinal",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
-  <component name="RunManager" selected="Application.fruits">
+}]]></component>
+  <component name="RunManager" selected="Application.Fruits">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="ExmFinal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TiendaMarcos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TiendaMarcos" />
       <module name="ExmFinal" />
@@ -69,16 +89,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fruits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fruits" />
-      <module name="ExmFinal" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.fruits" />
+        <item itemvalue="Application.Fruits" />
         <item itemvalue="Application.f01suma" />
         <item itemvalue="Application.act" />
         <item itemvalue="Application.algoritmo" />
@@ -99,6 +112,7 @@
       <workItem from="1659477467110" duration="1260000" />
       <workItem from="1659538224330" duration="2031000" />
       <workItem from="1659978758310" duration="4550000" />
+      <workItem from="1660179514354" duration="4809000" />
     </task>
     <servers />
   </component>
@@ -115,5 +129,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

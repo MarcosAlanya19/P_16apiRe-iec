@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="eed3si9n.gigahorse.okhttp_2.10" type="repository">
+    <properties maven-id="com.eed3si9n:gigahorse-okhttp_2.10:0.4.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eed3si9n/gigahorse-okhttp_2.10/0.4.0/gigahorse-okhttp_2.10-0.4.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.10.7/scala-library-2.10.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/eed3si9n/gigahorse-core_2.10/0.4.0/gigahorse-core_2.10-0.4.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/ssl-config-core_2.10/0.2.2/ssl-config-core_2.10-0.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/config/1.2.0/config-1.2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.14.0/okhttp-3.14.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

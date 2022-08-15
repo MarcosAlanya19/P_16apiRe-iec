@@ -15,26 +15,6 @@ public class Utils {
         return (response.equalsIgnoreCase("S"));
     }
     // API REÑIEC
-    public static String findDni(String dni) throws IOException {
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        MediaType mediaType = MediaType.parse("text/plain");
-        Request request = new Request.Builder()
-                .url("https://api.apis.net.pe/v1/dni?numero=" + dni)
-//                .url("https://api.apis.net.pe/v1/ruc  ?numero=" + dni)
-                .addHeader("Authorization", "Bearer apis-token-1.aTSI1U7KEuT-6bbbCguH-4Y8TI6KS73N")
-                .build();
-        Response response = client.newCall(request).execute();
-        if (response.code() == 200) {
-            assert response.body() != null;
-            String jsonData = response.body().string();
-            Gson gson = new Gson();
-            ResponseApi entity = gson.fromJson(jsonData, ResponseApi.class);
-            return entity.nombre;
-        } else {
-            return "PERSONA DESCONOCIDA";
-        }
-    }
     public static String findRuc(String ruc) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
@@ -71,6 +51,27 @@ public class Utils {
             return entity.direccion;
         } else {
             return "NO SE ENCUENTRA DIRECCION";
+        }
+
+    }
+    public static String findDni(String dni) throws IOException {
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        Request request = new Request.Builder()
+                .url("https://api.apis.net.pe/v1/dni?numero=" + dni)
+//                .url("https://api.apis.net.pe/v1/ruc  ?numero=" + dni)
+                .addHeader("Authorization", "Bearer apis-token-1.aTSI1U7KEuT-6bbbCguH-4Y8TI6KS73N")
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code() == 200) {
+            assert response.body() != null;
+            String jsonData = response.body().string();
+            Gson gson = new Gson();
+            ResponseApi entity = gson.fromJson(jsonData, ResponseApi.class);
+            return entity.nombre;
+        } else {
+            return "PERSONA DESCONOCIDA";
         }
     }
 }

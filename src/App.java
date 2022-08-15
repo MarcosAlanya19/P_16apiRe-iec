@@ -35,7 +35,6 @@ public class App {
 
         if (documento.length()>8){
             razonSocial = Utils.findRuc(documento);
-            dirEmpresa = Utils.findRucDir(documento);
         }else{
             razonSocial = Utils.findDni(documento);
         }
@@ -78,9 +77,9 @@ public class App {
 
         if (compras > 50) {
             descuento = compras * 0.20;
-        } else if (compras > 100) {
+        } if (compras > 100) {
             descuento = compras * 0.40;
-        } else if (compras > 150) {
+        } if (compras > 150) {
             descuento = compras * 0.50;
         } else {
             System.out.println("Descuento no valido");

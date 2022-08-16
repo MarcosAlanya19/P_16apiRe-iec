@@ -85,24 +85,30 @@ public class App {
             System.out.println("Descuento no valido");
         }
 
-        // Informacion de comprobante
-        System.out.println(ANSI_YELLOW + "\nEl cliente: " + razonSocial+ANSI_YELLOW);
+        if(kilo<=0){
+            System.out.println("\nNo ingreso kilos validos, para su compra");
+        } else{
+            // Informacion de comprobante
+            System.out.println(ANSI_YELLOW + "\nEl cliente: " + razonSocial+ANSI_YELLOW);
 
-        if (dirEmpresa.length()==25){
-            System.out.println(" ");
-        }else{
-            System.out.println("Su direccion es: "+dirEmpresa);
+            if (dirEmpresa.length()==25){
+                System.out.println(" ");
+            }else{
+                System.out.println("Su direccion es: "+dirEmpresa);
+            }
+
+            System.out.println(ANSI_YELLOW+"El dia: " + todaysDate +
+                    "\nCompro: "+df.format(kilo)+" kl de "+listFruits[compra].fruta+"\nPrecio por kilo: S/."+df.format(listFruits[compra].costo)+ANSI_YELLOW);
+            System.out.println(ANSI_YELLOW+"\nBase imponible: S/."+df.format(baseI)+"\nIGV: S/."+df.format(IGV)+"\nPrecio neto: S/."+df.format(compras)+ANSI_YELLOW);
+            if (descuento > 50) {
+                System.out.println(ANSI_CYAN + "\nCon un descuento de S/." + df.format(descuento) +
+                        "\nTeniendo que " +
+                        "pagar un " +
+                        "total de: S/." + (compras - descuento) + ANSI_CYAN);
+            }
         }
 
-        System.out.println(ANSI_YELLOW+"El dia: " + todaysDate +
-                "\nCompro: "+df.format(kilo)+" kl de "+listFruits[compra].fruta+"\nPrecio por kilo: S/."+df.format(listFruits[compra].costo)+ANSI_YELLOW);
-        System.out.println(ANSI_YELLOW+"\nBase imponible: S/."+df.format(baseI)+"\nIGV: S/."+df.format(IGV)+"\nPrecio neto: S/."+df.format(compras)+ANSI_YELLOW);
-        if (descuento > 50) {
-            System.out.println(ANSI_CYAN + "\nCon un descuento de S/." + df.format(descuento) +
-                    "\nTeniendo que " +
-                    "pagar un " +
-                    "total de: S/." + (compras - descuento) + ANSI_CYAN);
-        }
+
     }
 }
 
